@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Let's Kill some Canaries</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+		<style>
+			strong {
+				color: #E6DB74;
+			}
+
+			.alignleft: {
+				text-align: left !important;
+			}
+
+			.reveal .stewie {
+				position: absolute;
+				bottom: -10em;
+				left: -10em;
+				font-size: 0.5em;
+			}
+
+			.stewie > img {
+				width: 150px;
+				height: 279px;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Let's kill some Canaries</h1>
+					<h3>The story of a slow developer</h3>
+				</section>
+				
+				<section>
+					<h2>Chuck Rolek</h2>
+					<br></br>
+					<h3>Principal Financial Group</h3>
+					<ul>
+						<li>Front-end architecture</li>
+						<li>Training</li>
+						<li>Infrastructure and app development</li>
+						<li>UX Support</li>
+					</ul>
+					<!-- <h3>TelePharm</h3>
+					<ul>
+						<li>Nodejs</li>
+						<li>DevOps</li>
+						<li>Herding Yaks</li>
+					</ul> -->
+					<br></br>
+					<h3>IowaComputerGurus</h3>
+					<ul>
+						<li>Multi-channel Arduino/Xbee sensor reading</li>
+						<li>Raspberry Pi and hardware integration</li>
+						<li>Cordova development</li>
+					</ul>
+				</section>
+				<section>
+					<h2>But Chuck, you work at a startup, this can never work at my large Enterprise!?!?!</h2>
+					<p class="fragment">Don't worry, this talk was "forged" in the fires of the Entrprise and field tested in my new role at a startup.</p>
+				</section>
+				<section>
+					<h2>Quick Poll</h2>
+					<p>First one should be easy...</p>
+					<ul>
+						<li class="fragment">Who hates public speaking? <div class="fragment"><br /> I do!<br />But seriously, this will hopefully make sense later</div></li>
+						<li class="fragment">Keep your hands raised... Who's been a developer for at least a year?</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>What this talk is</h2>
+					<ul>
+						<li>An amalgamation of dev tools, patterns, and practices that I rely on heavily.</li>
+						<li>Sort of an retrospective “evolution” (if you want to call it that) of how I grew as a developer. </li>
+						<li>These are some of the tricks I learned on the way</li>
+					</ul>
+				</section>
+				<section>
+					<h2>What this talk is <strong>not</strong></h2>
+					<ul>
+						<li>Come of as an egotistical jerk</li>
+						<li>I'm not trying to fling dirt at the examples I show. Not all enviornments are great and deadliens exist.</li>
+						<li>This is not the end-all-be-all way to do things, just something to keep in mind.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The situation</h3>
+					<ul>
+						<li>I started at Principal in 2011 on the UXI team
+							<ul>
+								<li>Multi tasking, working with Java, CI, whatever</li>
+								<li>doing POCs</li>
+							</ul>
+						</li>
+						<li>I wanted to change the world (at Principal)</li>
+						<li>September 2014 we got our dev team and became known as the FEDEV team</li>
+						<li>I was training up new developers. working on my own stuff, and deubgging others problems</li>
+						<li>What I noticed over time is that it was very expensive from a context-switching and development standpoint to do anything</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The solutions/tricks/patterns/cool-things</h3>
+					<ul>
+						<li>Techincal
+							<ul>
+								<li>The Canary Test</li>
+								<li>Find a fast enough feedback cycle</li>
+								<li>Test Driven Developmen (groan, I know)</li>
+								<li>Debugging</li>
+							</ul>
+						</li>
+						<li>Soft skills
+							<ul>
+								<li>Define the context with whoever you're working with</li>
+								<li>Be explicit</li>
+								<li>Understand the 3 things you can control</li>
+							</ul>
+						</li>
+						<li>How to grow
+							<ul>
+								<li>Go to conferences and meetups! (congrats you did one already!)</li>
+								<li>Teach. The best way to learn is to teach!</li>
+								<li>Misc</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>The long winded goal</h3>
+					<p>That you’ll learn <strong>at least one thing that’ll make your development cycle faster</strong>.</p>
+					<small>If you don’t please talk to me after so I can try and figure out if I left something out.</small>
+				</section>
+				<section>
+					<h3>The Canary Test </h3>
+					<p>The definition: “A test that you run to make sure that everything is setup and ready for development”</p>
+					<ul>
+						<li>You’ll find missing dependencies (mvn/npm install)</li>
+						<li>SDK or Path issues</li>
+						<li>It also makes sure you’re in the right mindset about the context of what you’re working on.</li>
+					</ul>
+					<p>Example...</p>
+				</section>
+				<section>
+					<section>
+						<h3>Find a fast feedback cycle</h3>
+						<p>A fast enough feedback cycle can be the difference between a met deadline and a failed one</p>
+						<p>Story time</p>
+						<ul>
+							<li>Xbee project</li>
+							<li>Prinpad</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Diving into a new app..</h3>
+						<ol>
+							<li>Get it stood up (find an entry point)<br /><small>Is your Canary alive?</small></li>
+							<li>Make the simplest of changes<br /><small>What's your feedback cycle like?</small></li>
+							<li>Then start looking at the problem<br /><small>You're in a workable state</small></li>
+							<li>Why step 2? because maybe you’re working on the wrong template, or you’re not working something you expect.</li>
+						</ol>
+						<p>Example: Telepharm v2</p>
+					</section>
+					<section>
+						<h3>Monitor your own feedback cycle</h3>
+						<br /><br />
+						<p>Can you automate it?</p>
+						<p>Examples: Clink/ConsoleZ, DosKey, shortcuts</p>
+					</section>
+				</section>
+				<section>
+					<h3>Test Driven Development</h3>
+					<p>Most people will hate this part</p>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<div class="stewie">
+						<img src="images/Stewie-Edited.jpg"/>
+					</div>
+				</section>
+				<section>
+					<h3></h3>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h3></h3>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h3></h3>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h3></h3>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h3></h3>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h1>Thank you</h1>
+
+					<p><a href="https://twitter.com/crolek">twitter.com/crolek</a></p>
+					<p><a href="https://github.com/crolek">github.com/crolek</a></p>
+					<p><a href="https://chuckrolek.com">ChuckRolek.com</a></p>
+					<br /><br /><br />
+					<small>No Canaries were actually hurt</small><br />
+					<small>or killed in the making or presenting of this presentation</small>
+				</section>
+			</div>
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
