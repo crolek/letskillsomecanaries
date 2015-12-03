@@ -32,6 +32,28 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<style>
+			strong {
+				color: #E6DB74;
+			}
+
+			.alignleft: {
+				text-align: left !important;
+			}
+
+			.reveal .stewie {
+				position: absolute;
+				bottom: -5em;
+				left: -5em;
+				font-size: 0.5em;
+			}
+
+			.stewie > img {
+				width: 150px;
+				height: 192px;
+			}
+
+		</style>
 	</head>
 
 	<body>
@@ -80,7 +102,7 @@
 					<h2>Quick Poll</h2>
 					<p>First one should be easy...</p>
 					<ul>
-						<li class="fragment">Who hates public speaking? <div class="fragment"><br /> I do!<br />But seriously, this will hopefully make sense later</div></li>
+						<li class="fragment">Who hates public speaking? <div class="fragment"><br /> I do!<br />But seriously, this will hopefully make sense later</div><br /></li>
 						<li class="fragment">Keep your hands raised... Who's been a developer for at least a year?</li>
 						<li class="fragment"></li>
 					</ul>
@@ -96,10 +118,13 @@
 				<section>
 					<h2>What this talk is <strong>not</strong></h2>
 					<ul>
-						<li>Come of as an egotistical jerk</li>
 						<li>I'm not trying to fling dirt at the examples I show. Not all enviornments are great and deadliens exist.</li>
 						<li>This is not the end-all-be-all way to do things, just something to keep in mind.</li>
 					</ul>
+					<aside class="aside">
+						<p>I may not be the best developer because there is always someone better than me</p>
+						<p>These things just helped me</p>
+					</aside>
 				</section>
 				<section>
 					<h3>The situation</h3>
@@ -119,56 +144,67 @@
 					</aside>
 				</section>
 				<section>
-					<h3>The solutions/tricks/patterns/cool-things</h3>
-					<ul>
-						<li>Techincal
-							<ul>
-								<li>The Canary Test</li>
-								<li>Find a fast enough feedback cycle</li>
-								<li>Test Driven Developmen (groan, I know)</li>
-								<li>Debugging</li>
-							</ul>
-						</li>
-						<li>Soft skills
-							<ul>
-								<li>Define the context with whoever you're working with</li>
-								<li>Be explicit</li>
-								<li>Understand the 3 things you can control</li>
-							</ul>
-						</li>
-						<li>How to grow
-							<ul>
-								<li>Go to conferences and meetups! (congrats you did one already!)</li>
-								<li>Teach. The best way to learn is to teach!</li>
-								<li>Misc</li>
-							</ul>
-						</li>
-					</ul>
+					<h3>Techincal</h3>
+					<br />
+					<h3>Soft skills</h3>
+					<br />
+					<h3>How to grow</h3>
+					<aside class="notes">
+						<p>General topics</p>
+					</aside>
 				</section>
 				<section>
 					<h3>The long winded goal</h3>
 					<p>That you’ll learn <strong>at least one thing that’ll make your development cycle faster</strong>.</p>
-					<small>If you don’t please talk to me after so I can try and figure out if I left something out.</small>
+					<aside class="notes">
+						<small>If you don’t please talk to me after so I can try and figure out if I left something out.</small>
+					</aside>
 				</section>
 				<section>
-					<h3>The Canary Test </h3>
-					<p>The definition: “A test that you run to make sure that everything is setup and ready for development”</p>
-					<ul>
-						<li>You’ll find missing dependencies (mvn/npm install)</li>
-						<li>SDK or Path issues</li>
-						<li>It also makes sure you’re in the right mindset about the context of what you’re working on.</li>
-					</ul>
-					<p>Example...</p>
+					<section>
+						<h3>The Canary Test </h3>
+					</section>
+					<section>
+						<blockquote>
+“Just get some kind of output”
+						</blockquote>
+						<p>Venkat Subramaniam (@venkat_s)</p>
+						<aside class="notes">
+							<p>Mention MidwestJS and Venkat's talk about TDD</p>
+							<p><strong>Remember its not about your ego</strong></p>
+							<p>don't forget to mention how awesome Venkat is</p>
+						</aside>
+					</section>
+					<section>
+						<p>The 'rough' definition: “A test that you run to make sure that everything is setup and ready for development”</p>
+						<ul>
+							<li>You’ll find missing dependencies (mvn/npm install)</li>
+							<li>SDK or Path issues</li>
+							<li>It also makes sure you’re in the right mindset about the context of what you’re working on.</li>
+						</ul>
+						<aside class="notes">
+							<p>Canary Example</p>
+						</aside>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h3>Find a fast feedback cycle</h3>
-						<p>A fast enough feedback cycle can be the difference between a met deadline and a failed one</p>
-						<p>Story time</p>
-						<ul>
-							<li>Xbee project</li>
-							<li>Prinpad</li>
-						</ul>
+						<p>A fast feedback cycle is the most valuable thing a developer can influence</p>
+						<aside class="notes">
+							<p>A fast enough feedback cycle can be the difference between a met deadline and a failed one</p>
+							<p>Story time</p>
+							<ul>
+								<li>Xbee project</li>
+								<li>Prinpad</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h3>Monitor your own feedback cycle</h3>
+						<br /><br />
+						<p>Can you automate it?</p>
+						<p>Examples: Clink/ConsoleZ, DosKey, shortcuts</p>
 					</section>
 					<section>
 						<h3>Diving into a new app..</h3>
@@ -178,27 +214,22 @@
 							<li>Then start looking at the problem<br /><small>You're in a workable state</small></li>
 							<li>Why step 2? because maybe you’re working on the wrong template, or you’re not working something you expect.</li>
 						</ol>
-						<p>Example: Telepharm v2</p>
-					</section>
-					<section>
-						<h3>Monitor your own feedback cycle</h3>
-						<br /><br />
-						<p>Can you automate it?</p>
-						<p>Examples: Clink/ConsoleZ, DosKey, shortcuts</p>
 					</section>
 				</section>
 				<section>
 					<h3>Test Driven Development</h3>
 					<p>Most people will hate this part</p>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
 					<div class="stewie">
-						<img src="images/Stewie-Edited.jpg"/>
+						<img src="images/stewie.jpg"/>
 					</div>
+					<aside class="notes">
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3></h3>
@@ -219,30 +250,62 @@
 					</ul>
 				</section>
 				<section>
-					<h3></h3>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+					<section>
+						<h3>Understand your Complexity</h3>
+						<ul>
+							<li class="segment">Know the integration points</li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<aside class="notes">
+							<p>Integration Points for knowing where to turn things off</p>
+							<p>Xbee project with the Dragino and Uno</p>
+							<br />
+							<p>Example: TelePharm v3</p>
+						</aside>
+					</section>
 				</section>
 				<section>
-					<h3></h3>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+					<section>
+						<h3>Soft Skills</h3>
+					</section>
+					<section>
+						<p>Define the context with whoever you're working with</p>
+						<aside class="notes">
+							<p>The NBA story</p>
+						</aside>
+					</section>
+					<section>
+						<p>Be explicit</p>
+						<aside class="notes">
+							<p>No one wants to admit their wrong or don't know</p>
+							<p>Describe asking a dev what REST means</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Understand your Environment</h3>
+						<br />
+						<p class="segment">The 3 stages of control/influence</p>
+						<ul>
+							<li class="segment">Things you can control</li>
+							<li class="segment">Things you can't control but can influence</li>
+							<li class="segment">Things you can't control or can't influence</li>
+						</ul>
+						<aside class="notes">
+							<p>This comes from me wanting to change the world</p>
+							<p>This helped me drastically understand what to "worry" about</p>
+						</aside>
+					</section>
 				</section>
 				<section>
-					<h3></h3>
+					<h3>How to Grow</h3>
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li>Go to conferences and meetups! (congrats you did one already!)</li>
+						<li>Teach. The best way to learn is to teach!</li>
+						<li>Speak at conferences and meetups!</li>
+						<li>Talk to other developers outside of work</li>
+						<li>Misc</li>
 					</ul>
 				</section>
 				<section>
