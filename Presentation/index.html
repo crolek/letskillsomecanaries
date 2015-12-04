@@ -41,18 +41,47 @@
 				text-align: left !important;
 			}
 
-			.reveal .stewie {
+			.reveal .stewie-container {
 				position: absolute;
-				bottom: -5em;
-				left: -5em;
 				font-size: 0.5em;
 			}
 
-			.stewie > img {
-				width: 150px;
-				height: 192px;
+			.stewie-container-bottom {
+
 			}
 
+			.stewie-container-top {
+
+			}
+
+			.stewie-img {
+				width: 267px;
+				height: 150px;
+				background: none !important;
+				border: none !important;
+				box-shadow: none !important;
+				margin: none !important;
+				float: left;
+			}
+
+			.stewie-message {
+				position: relative;
+				text-align: left;
+				float: left;
+				font-size: .75em !important;
+			}
+
+			.stewie-message-bottom {
+
+			}
+
+			.stewie-message-top {
+
+			}
+
+			.clear-left {
+				clear: left;
+			}
 		</style>
 	</head>
 
@@ -69,13 +98,12 @@
 				
 				<section>
 					<h2>Chuck Rolek</h2>
-					<br></br>
+					</br>
 					<h3>Principal Financial Group</h3>
 					<ul>
 						<li>Front-end architecture</li>
 						<li>Training</li>
 						<li>Infrastructure and app development</li>
-						<li>UX Support</li>
 					</ul>
 					<!-- <h3>TelePharm</h3>
 					<ul>
@@ -91,12 +119,18 @@
 						<li>Cordova development</li>
 					</ul>
 					<aside class="notes">
-						Don't forget to uncomment the TelePharm part.
+						<h1>Don't forget to uncomment the TelePharm part.</h1>
 					</aside>
 				</section>
 				<section>
-					<h2>But Chuck, you work at a startup, this can never work at my large Enterprise!?!?!</h2>
-					<p class="fragment">Don't worry, this talk was "forged" in the fires of the Entrprise and field tested in my new role at a startup.</p>
+					<div class="stewie-container-top">
+						<img class="stewie-img" src="images/stewie.jpg"/>
+						<div class="stewie-message stewie-message-top">
+							<p>"But Chuck, you work at a startup,</p>
+							<p> this can never work at my large Enterprise!?!?!"</p>
+						</div>
+					</div>
+					<p class="fragment clear-left">Don't worry, this talk was "forged" in the fires of the Entrprise and field tested in my new role at a startup.</p>
 				</section>
 				<section>
 					<h2>Quick Poll</h2>
@@ -104,7 +138,7 @@
 					<ul>
 						<li class="fragment">Who hates public speaking? <div class="fragment"><br /> I do!<br />But seriously, this will hopefully make sense later</div><br /></li>
 						<li class="fragment">Keep your hands raised... Who's been a developer for at least a year?</li>
-						<li class="fragment"></li>
+						<li class="fragment">10 years?</li>
 					</ul>
 				</section>
 				<section>
@@ -121,7 +155,7 @@
 						<li>I'm not trying to fling dirt at the examples I show. Not all enviornments are great and deadliens exist.</li>
 						<li>This is not the end-all-be-all way to do things, just something to keep in mind.</li>
 					</ul>
-					<aside class="aside">
+					<aside class="notes">
 						<p>I may not be the best developer because there is always someone better than me</p>
 						<p>These things just helped me</p>
 					</aside>
@@ -217,12 +251,17 @@
 					</section>
 				</section>
 				<section>
+					<!-- style="position: relative; top: 4em !important; text-align: center;" -->
 					<h3>Test Driven Development</h3>
-					<p>Most people will hate this part</p>
-					<div class="stewie">
-						<img src="images/stewie.jpg"/>
+					<div class="fragment stewie-container-bottom">
+						<img class="stewie-img" src="images/stewie.jpg"/>
+						<div class="stewie-message stewie-message-bottom">
+							<p>"...but Chuck, I don't have time to write unit tests</p>
+							<p>I have deadlines I have to meet right Meow!"</p>
+						</div>
 					</div>
 					<aside class="notes">
+						<p>Most people will hate this part</p>
 						<ul>
 							<li></li>
 							<li></li>
