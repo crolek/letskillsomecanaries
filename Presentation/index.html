@@ -130,7 +130,7 @@
 							<p> this can never work at my large Enterprise!?!?!"</p>
 						</div>
 					</div>
-					<p class="fragment clear-left">Don't worry, this talk was "forged" in the fires of the Entrprise and field tested in my new role at a startup.</p>
+					<p class="fragment clear-left">Don't worry, this talk was "forged" in the fires of the Enterprise and field tested in my new role at a startup.</p>
 				</section>
 				<section>
 					<h2>Quick Poll</h2>
@@ -152,7 +152,7 @@
 				<section>
 					<h2>What this talk is <strong>not</strong></h2>
 					<ul>
-						<li>I'm not trying to fling dirt at the examples I show. Not all enviornments are great and deadliens exist.</li>
+						<li>I'm not trying to fling dirt at the examples I show. Not all environment are great and deadliens exist.</li>
 						<li>This is not the end-all-be-all way to do things, just something to keep in mind.</li>
 					</ul>
 					<aside class="notes">
@@ -199,6 +199,22 @@
 						<h3>The Canary Test </h3>
 					</section>
 					<section>
+						<h4>Originated in Coal Mines</h4>
+						<img src="images/CoalCanary.jpg">
+						<small>Image from: http://www.academia.dk/Blog/wp-content/uploads/CanaryInACoalMine_2.jpg</small>
+						<aside class="notes">
+							<p>Canary dies to carbon monoxide before the miner.</p>
+						</aside>
+					</section>
+					<section>
+						<p>The 'rough' definition: “A test that you run to make sure that everything is setup and ready for development”</p>
+						<ul>
+							<li>You’ll find missing dependencies (mvn/npm install)</li>
+							<li>SDK or Path issues</li>
+							<li>It also makes sure you’re in the right mindset about the context of what you’re working on.</li>
+						</ul>
+					</section>
+					<section>
 						<blockquote>
 “Just get some kind of output”
 						</blockquote>
@@ -210,14 +226,10 @@
 						</aside>
 					</section>
 					<section>
-						<p>The 'rough' definition: “A test that you run to make sure that everything is setup and ready for development”</p>
-						<ul>
-							<li>You’ll find missing dependencies (mvn/npm install)</li>
-							<li>SDK or Path issues</li>
-							<li>It also makes sure you’re in the right mindset about the context of what you’re working on.</li>
-						</ul>
+						<a target="_blank" href="https://github.com/crolek/letskillsomecanaries/commit/4ab64bc4071ac7574edce959c1bbc999b0072333#diff-87f0b4d08b0d55eaf4eb1ee7a6b1ff4aR12">Saved by a Canary</a>
 						<aside class="notes">
 							<p>Canary Example</p>
+							<h2>Your own Canary test failure</h2>
 						</aside>
 					</section>
 				</section>
@@ -235,12 +247,6 @@
 						</aside>
 					</section>
 					<section>
-						<h3>Monitor your own feedback cycle</h3>
-						<br /><br />
-						<p>Can you automate it?</p>
-						<p>Examples: Clink/ConsoleZ, DosKey, shortcuts</p>
-					</section>
-					<section>
 						<h3>Diving into a new app..</h3>
 						<ol>
 							<li>Get it stood up (find an entry point)<br /><small>Is your Canary alive?</small></li>
@@ -249,54 +255,58 @@
 							<li>Why step 2? because maybe you’re working on the wrong template, or you’re not working something you expect.</li>
 						</ol>
 					</section>
+					<section>
+						<h3>Monitor your own feedback cycle</h3>
+						<br /><br />
+						<p>Can you automate it?</p>
+						<p>Examples: Clink/ConsoleZ, DosKey, shortcuts</p>
+					</section>
+					<section>
+						<a href="http://www.chuckrolek.com/Shortcuts_are_similar_to_magic.html" target="_blank">Shortcuts are similar to magic...</a>
+						<br /><br />
+						<a href="http://www.chuckrolek.com/Doskey_The_evolution_of_the_lazy_developer.html" target="_blank">Doskey: The evolution of the lazy developer</a>
+					</section>
 				</section>
 				<section>
-					<!-- style="position: relative; top: 4em !important; text-align: center;" -->
-					<h3>Test Driven Development</h3>
-					<div class="fragment stewie-container-bottom">
-						<img class="stewie-img" src="images/stewie.jpg"/>
-						<div class="stewie-message stewie-message-bottom">
-							<p>"...but Chuck, I don't have time to write unit tests</p>
-							<p>I have deadlines I have to meet right Meow!"</p>
+					<section>
+						<!-- style="position: relative; top: 4em !important; text-align: center;" -->
+						<h3>Test Driven Development</h3>
+						<div class="fragment stewie-container-bottom">
+							<img class="stewie-img" src="images/stewie.jpg"/>
+							<div class="stewie-message stewie-message-bottom">
+								<p>"...but Chuck, I don't have time to write unit tests</p>
+								<p>I have deadlines I have to meet right Meow!"</p>
+							</div>
 						</div>
-					</div>
-					<aside class="notes">
-						<p>Most people will hate this part</p>
-						<ul>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3></h3>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</section>
-				<section>
-					<h3></h3>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+						<aside class="notes">
+							<p>I understand most people will hate this part</p>
+							<p>And Stewie is right, we all work under deadliens</p>
+							<p>Bu you'll write better code</p>
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h4>My tipping point to Test Driven Development...</h4>
+						<h4 class="fragment"><strong>Write your code inside your unit test first!</strong></h4>
+						<aside class="notes">
+							<h1>A lot of TDD people might not like this suggestion</h1>
+							<h1>But it got me to start doing TDD and it so I can "run my marathon" so i think its worth suggesting</h1>
+							<p>Go write the ____ module</p>
+
+						</aside>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h3>Understand your Complexity</h3>
-						<ul>
-							<li class="segment">Know the integration points</li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
+					</section>
+					<section>
+						<img src="images/HydraRESTOverview.png">
 						<aside class="notes">
 							<p>Integration Points for knowing where to turn things off</p>
 							<p>Xbee project with the Dragino and Uno</p>
