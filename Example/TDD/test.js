@@ -1,8 +1,11 @@
-QUnit.test("The Canary test", function( assert ) {
+QUnit.test("The Stewie test", function( assert ) {
     var name = "Stewie",
-        number = 99,
+        number,
         expected = ""
+
+    number = randomInt(0, 10)
 
     expected = name + "'s number is: " + number
     assert.equal(stewieSays(name, number), expected, "Stewie's number")
+    assert.equal(stewieSays(), "Sherpa's number is: 0", "Default works")
 });
