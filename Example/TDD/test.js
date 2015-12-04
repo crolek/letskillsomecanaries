@@ -1,7 +1,8 @@
 QUnit.test("The Canary test", function( assert ) {
     var name = "Stewie",
+        number = 99,
         expected = ""
 
-    expected = name + "'s number is: 10"
-    assert.equal(stewieSays(name), expected, "Stewie's number")
+    expected = name + "'s number is: " + number
+    assert.equal(stewieSays(name, number), expected, "Stewie's number")
 });
